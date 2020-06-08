@@ -1,6 +1,6 @@
 {
   "name": "better-gesture",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "author": "wensiyuan",
   "description": "一个极小的可兼容PC,Mobile,小程序的多端手势库",

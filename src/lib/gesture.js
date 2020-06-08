@@ -1,5 +1,4 @@
 
-//  (function () {
     function getLen(v) {
         return Math.sqrt(v.x * v.x + v.y * v.y);
     }
@@ -363,9 +362,3 @@
             return null;
         }
     }
-    if (typeof module !== 'undefined' && typeof exports === 'object') {
-        module.exports = Gesture;
-    } else {
-        window.Gesture = Gesture;
-    }
-    // })();
