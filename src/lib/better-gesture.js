@@ -359,9 +359,7 @@
     }
 
 (function(){
-  if(typeof module !== 'undefined' && typeof exports === 'object') {
-    module.exports = BetterGesture;
-  } else {
+   if(window!=="undefined"){
     window.BetterGesture = BetterGesture;
-  }
+   }
 })();
