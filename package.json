@@ -1,6 +1,6 @@
 {
   "name": "better-gesture",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
   "description": "A very small multi-terminal gesture library compatible with PC, Mobile, and small programs",
