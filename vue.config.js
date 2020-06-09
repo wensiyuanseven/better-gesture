@@ -6,5 +6,5 @@ module.exports = {
         filename: 'index.html'
       }
     },
-    css: { extract: false }
+    css: { extract: false } //强制内联
   }

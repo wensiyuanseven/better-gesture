@@ -38,7 +38,6 @@
      class Observer {
         constructor(el) {
             this._Observer = {}
-            // 为了改变this指向
             this.el = el
         }
         register(type, func) {
@@ -73,7 +72,6 @@
                 }
             }
         }
-        // this._Observer[type][i] === func &&
         remove(type) {
             if (this._Observer[type] instanceof Array) {
                 for (let i = this._Observer[type].length - 1; i >= 0; i--) {
@@ -82,11 +80,10 @@
             }
         }
     }
-    export default class Gesture {
+    export default class BetterGesture {
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
-            //在元素监听事件时，把this绑定到touch事件上，从而能访问到构造函数上面的方法，bind和call/apply的区别
             this.start = this.start.bind(this);
             this.move = this.move.bind(this);
             this.end = this.end.bind(this);
@@ -129,7 +126,6 @@
             this.Observer.register('singleTap', option.singleTap)
             this.Observer.register('pressMove', option.pressMove)
 
-            // 有滚动事件清除定时器
             this._cancelAllHandler = this.cancelAll.bind(this);
 
             window.addEventListener('scroll', this._cancelAllHandler);
@@ -326,11 +322,11 @@
         _swipeDirection(x1, x2, y1, y2) {
             return Math.abs(x1 - x2) >= Math.abs(y1 - y2) ? (x1 - x2 > 0 ? 'Left' : 'Right') : (y1 - y2 > 0 ? 'Up' : 'Down')
         }
-        //注册某个事件
+        //注册
         on(type, func) {
             this.Observer.register(type, func)
         }
-        // 删除某个事件
+        // 移除
         off(type, func) {
             this.Observer.remove(type, func)
         }
@@ -354,7 +350,6 @@
 
             }
 
-            // 移除自定事件
             this.Observer._Observer = {}
             // 状态滞空
             this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout = this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;

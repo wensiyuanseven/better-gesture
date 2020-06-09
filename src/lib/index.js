@@ -1,4 +1,4 @@
-import Gesture  from  './gesture.js'
+import BetterGesture  from  './better-gesture.js'
 
 let CACHE = []
 
@@ -28,7 +28,7 @@ let doOnOrOff = function (cacheObj, options) {
         options[eventName] = func
         CACHE.push({
             elem: elem,
-            gesture: new Gesture(elem, options)
+            gesture: new BetterGesture(elem, options)
         })
     }
 }
