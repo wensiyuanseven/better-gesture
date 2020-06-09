@@ -357,3 +357,11 @@
             return null;
         }
     }
+
+(function(){
+  if(typeof module !== 'undefined' && typeof exports === 'object') {
+    module.exports = BetterGesture;
+  } else {
+    window.BetterGesture = BetterGesture;
+  }
+})();

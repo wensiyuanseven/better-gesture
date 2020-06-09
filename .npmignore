@@ -7,3 +7,8 @@ node_modules/
 vue.config.js
 babel.config.js
 .vscode
+lib/better-gesture.common.js
+lib/better-gesture.common.js.map
+lib/better-gesture.umd.js
+lib/better-gesture.umd.js.map
+lib/demo.html
