@@ -8,10 +8,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name better-gesture --dest lib ./src/lib/index.js"
+    "lib": "vue-cli-service build --target lib --name better-gesture --dest lib ./src/lib/index.js",
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs"
   },
   "main": "lib/better-gesture.umd.min.js",
-  "unpkg": "better-gesture.umd.min.js",
+  "unpkg": "lib/better-gesture.umd.min.js",
   "dependencies": {
     "vue": "^2.0.0"
   },
@@ -22,7 +24,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.0"
   },
   "keywords": [
     "gesture",

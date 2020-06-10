@@ -1,0 +1,158 @@
+---
+sidebarDepth: 2
+---
+
+# 事件
+
+## 自定义事件
+
+### tap `点按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+   ``` html
+    <div v-gesture:tap="tap"> </div>
+   ```
+
+   ``` js
+    methods: {
+     tap() {
+         console.log('触发点按')
+     }
+   }
+   ```
+
+### longTap `长按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+   ``` html
+    <div v-gesture:longTap="longTap"> </div>
+   ```
+
+   ``` js
+    methods: {
+     longTap() {
+         console.log('触发长按')
+     }
+   }
+   ```
+
+**案例：长按改变背景颜色**
+
+ <longTap ></longTap>
+
+::: details 点击查看代码
+
+``` html
+<div v-gesture:longTap="longTap"  :style="{background:randomColor}">长按</div>
+```
+
+``` js
+export default {
+  data() {
+    return {
+      randomColor: 'silver'
+    }
+  },
+  methods: {
+    longTap(e) {
+      this.randomColor ='#'+(Math.random()*0xffffff<<0).toString(16)
+    }
+  }
+}
+```
+
+:::
+
+### doubleTap `双击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+   ``` html
+    <div v-gesture:doubleTap="doubleTap"> </div>
+   ```
+
+   ``` js
+    methods: {
+     doubleTap() {
+         console.log('触发双击')
+     }
+   }
+   ```
+
+**案例：双击放大点击区域**
+
+ <doubleTap ></doubleTap>
+
+::: details 点击查看代码
+
+``` html
+<template>
+  <section class="double-tap">
+    <img
+      src="./../public/demo.jpg"
+      :style="{transform:`translate3d(${distanceX}px,${distanceY}px,0) scale3d(${scaleX},${scaleY},1)`}"
+      class="img-demo"
+      ref="imgDemo"
+      v-gesture:doubleTap="doubleTap"
+    />
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'doubleTap',
+  data() {
+    return {
+      distanceX: 0,
+      distanceY: 0,
+      scaleX: 1,
+      scaleY: 1
+    }
+  },
+  methods: {
+    // 双击
+    doubleTap(evt) {
+      if (this.scaleX > 1.5) {
+        this.scaleX = this.scaleY = 1
+        this.distanceX = this.distanceY = 0
+      } else {
+        let box = this.$refs.imgDemo.getBoundingClientRect()
+        let xDis = 0
+        let yDis = 0
+        if (evt.clientX) {
+          xDis = evt.clientX - box.left
+          yDis = evt.clientY - box.top
+        } else {
+          xDis = evt.changedTouches[0].clientX - box.left
+          yDis = evt.changedTouches[0].clientY - box.top
+        }
+        let y = box.height - yDis * 2 - (box.height / 2 - yDis)
+        let x = box.width - xDis * 2 - (box.width / 2 - xDis)
+        this.scaleX = this.scaleY = 2
+        this.distanceX = x
+        this.distanceY = y
+      }
+    }
+  }
+}
+</script>
+
+<style scoped >
+.double-tap {
+  height: 300px;
+  width: 350px;
+  display: flex;
+  overflow: hidden;
+}
+.img-demo {
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  cursor: pointer;
+}
+</style>
+
+```
+
+:::
+
+## 支持的原生事件
+
+## 支持驼峰或短横线分隔
