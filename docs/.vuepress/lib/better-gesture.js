@@ -42,7 +42,6 @@
         }
         register(type, func) {
             if (typeof func === 'function') {
-
                 if (typeof this._Observer[type] === 'undefined') {
                     this._Observer[type] = [func]
                 } else {
@@ -51,6 +50,7 @@
             }
         }
         dispatch(type,args) {
+
             if (this._Observer[type]) {
                 let that=this
                 args.gesture={
@@ -67,8 +67,7 @@
                 }
                 for (let i = 0, len = this._Observer[type].length; i < len; i++) {
                     let handler = this._Observer[type][i];
-                    // 如果不用 apply修改，this指向_Observer
-                    typeof handler === 'function' && handler.call(this.el,args);
+                    typeof handler === 'function' && handler.call(this.el,args,'123');
                 }
             }
         }
@@ -106,11 +105,14 @@
                 this.Observer.register('twoFingerPressMove', option.twoFingerPressMove)
                 this.Observer.register('rotate', option.rotate)
             } else {
+                this.mouseLeave=this.mouseLeave.bind(this)
                 this.element.addEventListener("mousedown", this.start, false);
                 this.element.addEventListener("mousemove", this.move, false);
                 this.element.addEventListener("mouseup", this.end, false);
                 this.element.addEventListener("mouseover", this.mouseOver, false);
                 this.element.addEventListener("mouseout", this.mouseOut, false);
+                this.element.addEventListener("mouseleave",this.mouseLeave,false)
+
                 this.Observer.register("mouseDown", option.mouseDown);
                 this.Observer.register("mouseMove", option.mouseMove);
 
@@ -118,13 +120,14 @@
                 this.Observer.register('mouseOver', option.mouseOver)
                 this.Observer.register('mouseOut', option.mouseOut)
             }
-
+            this.Observer.register('start', option.start)
+            this.Observer.register('end', option.end)
+            this.Observer.register('pressMove', option.pressMove)
             this.Observer.register('swipe', option.swipe)
             this.Observer.register('tap', option.tap)
             this.Observer.register('doubleTap', option.doubleTap)
             this.Observer.register('longTap', option.longTap)
             this.Observer.register('singleTap', option.singleTap)
-            this.Observer.register('pressMove', option.pressMove)
 
             this._cancelAllHandler = this.cancelAll.bind(this);
 
@@ -141,6 +144,7 @@
             this.singleTapTimeout = null;
             this.longTapTimeout = null;
             this.swipeTimeout = null;
+            this.lastTime=null;
             this.x1 = this.x2 = this.y1 = this.y2 = null;
             this.preTapPosition = { x: null, y: null };
             this.isPress = false
@@ -158,8 +162,8 @@
             }
 
             this.delta = this.now - (this.last || this.now);
-            this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchStart' : 'mouseDown', evt)
-
+            this.Observer.dispatch('start',evt);
+            this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchStart' : 'mouseDown', evt);
             if (this.preTapPosition.x !== null) {
                 this.isDoubleTap = (this.delta > 0 && this.delta <= 250 && Math.abs(this.preTapPosition.x - this.x1) < 30 && Math.abs(this.preTapPosition.y - this.y1) < 30);
                 if (this.isDoubleTap) clearTimeout(this.singleTapTimeout);
@@ -186,7 +190,7 @@
         move(evt) {
             let preV = this.preV,
                 currentX = 0,
-                currentY = evt.pageY || evt.touches[0].pageY;
+                currentY = 0;
             if (this.userAgent === 'Mobile') {
                 currentX = evt.touches[0].pageX
                 currentY = evt.touches[0].pageY
@@ -226,7 +230,6 @@
                 if (this.x2 !== null) {
                     evt.deltaX = currentX - this.x2;
                     evt.deltaY = currentY - this.y2;
-
                     //move事件中添加对当前触摸点到初始触摸点的判断，
                     //如果曾经大于过某个距离(比如10),就认为是移动到某个地方又移回来，应该不再触发tap事件才对。
                     let movedX = Math.abs(this.x1 - this.x2),
@@ -240,6 +243,11 @@
                     evt.deltaX = 0;
                     evt.deltaY = 0;
                 }
+                if(this.lastTime!==null){
+                    evt.deltaTime=Date.now()-this.lastTime;
+                  }else{
+                    evt.deltaTime=0
+                  }
                 if (this.isPress) {
                     this.Observer.dispatch('pressMove', evt)
                 }
@@ -249,6 +257,7 @@
             this._cancelLongTap();
             this.x2 = currentX;
             this.y2 = currentY;
+            this.lastTime=Date.now()
 
             if (evt.touches && evt.touches.length > 1) {
                 evt.preventDefault();
@@ -289,12 +298,17 @@
                     }, 250);
                 }
             }
+            this.Observer.dispatch('end',evt);
             this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchEnd' : 'mouseUp', evt)
             this.preV.x = 0;
             this.preV.y = 0;
             this.zoom = 1;
             this.pinchStartLen = null;
-            this.x1 = this.x2 = this.y1 = this.y2 = null;
+            this.x1 = this.x2 = this.y1 = this.y2 =this.lastTime= null;
+        }
+        mouseLeave(evt){
+            this.isPress=false
+            this.Observer.dispatch('mouseLeave', evt)
         }
         mouseOver(evt) {
             this.Observer.dispatch('mouseOver', evt)
@@ -347,12 +361,12 @@
                 this.element.removeEventListener("mouseup", this.end);
                 this.element.removeEventListener("mouseup", this.end);
                 this.element.removeEventListener("mouseover", this.mouseOver);
-
+                this.element.removeEventListener("mouseLeave", this.mouseLeave);
             }
 
             this.Observer._Observer = {}
             // 状态滞空
-            this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout = this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
+            this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout =this.lastTime= this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
             window.removeEventListener('scroll', this._cancelAllHandler);
             return null;
         }

@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 
-# 事件
+# 支持的事件
 
 ## 自定义事件
 
@@ -52,7 +52,7 @@ export default {
     }
   },
   methods: {
-    longTap(e) {
+    longTap() {
       this.randomColor ='#'+(Math.random()*0xffffff<<0).toString(16)
     }
   }
@@ -75,7 +75,7 @@ export default {
    }
    ```
 
-**案例：双击放大点击区域**
+**案例：双击放大图片局部区域**
 
  <doubleTap ></doubleTap>
 
@@ -115,15 +115,18 @@ export default {
         let box = this.$refs.imgDemo.getBoundingClientRect()
         let xDis = 0
         let yDis = 0
+        // pc
         if (evt.clientX) {
           xDis = evt.clientX - box.left
           yDis = evt.clientY - box.top
         } else {
+          // mobile
           xDis = evt.changedTouches[0].clientX - box.left
           yDis = evt.changedTouches[0].clientY - box.top
         }
-        let y = box.height - yDis * 2 - (box.height / 2 - yDis)
-        let x = box.width - xDis * 2 - (box.width / 2 - xDis)
+        //移动的距离=触摸点到图片中心点的距离
+        let x = box.width - box.width / 2 - xDis
+        let y = box.height - box.height / 2 - yDis
         this.scaleX = this.scaleY = 2
         this.distanceX = x
         this.distanceY = y
@@ -149,10 +152,19 @@ export default {
 }
 </style>
 
+
 ```
 
 :::
 
-## 支持的原生事件
+### pressMove `拖拽`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+<pressMove></pressMove>
+
+**案例：橡皮筋效果**
+
+<rebound></rebound>
+
+## 原生事件
 
 ## 支持驼峰或短横线分隔

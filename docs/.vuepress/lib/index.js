@@ -43,6 +43,9 @@ export default {
         Vue.directive('gesture', {
             bind: function(elem, binding) {
                 let func = binding.value
+                if(typeof func!=='function'){
+                    throw new Error('value必须为一个函数');
+                }
                 let oldFunc = binding.oldValue
                 let cacheObj = CACHE[getElemCacheIndex(elem)]
                 doOnOrOff(cacheObj, {

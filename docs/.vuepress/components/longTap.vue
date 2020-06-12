@@ -13,7 +13,7 @@ export default {
     }
   },
    methods: {
-    longTap(e) {
+    longTap() {
       this.randomColor ='#'+(Math.random()*0xffffff<<0).toString(16)
     }
   }

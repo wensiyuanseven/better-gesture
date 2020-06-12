@@ -1,6 +1,6 @@
 # 用法
 
-## vue
+## 在vue中使用
 
 ```js
 import Vue from 'vue'
@@ -33,7 +33,7 @@ export default {
 </script>
 ```
 
-## 小程序  todo
+## 在小程序中使用小程序  todo
 
 ## 直接script引入
 
