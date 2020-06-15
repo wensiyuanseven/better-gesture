@@ -161,9 +161,13 @@ export default {
 
 <pressMove></pressMove>
 
-**案例：橡皮筋效果**
+**案例：下拉刷新**
 
 <rebound></rebound>
+
+**案例：上拉加载**
+
+<pulldown></pulldown>
 
 ## 原生事件
 

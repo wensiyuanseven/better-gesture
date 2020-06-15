@@ -1,28 +1,42 @@
 <template>
-  <div>
-    move:{{distanceY}}
-    scrollTop: {{scrollTop}}
+  <div class="rebound-wrap">
+    <p>move:{{getDistanceY}}</p>
+    <p>scrollTop: {{scrollTop}}</p>
     <div class="rebound" @scroll="scrolll" ref="wrap">
       <div
         class="page"
-        v-gesture:touchStart="touchStart"
+        v-gesture:start="start"
         v-gesture:pressMove="pressMove"
         v-gesture:end="end"
         v-gesture:mouseLeave="end"
-        :style="{transform:`translate3d(0,${distanceY}px,0)`}"
+        :style="{transform:`translate3d(0,${getDistanceY}px,0)`}"
       >
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
-        <p>下拉回弹</p>
+        <div class="refresh">{{text}}</div>
+        <!-- <p
+          style="background:#787878"
+          :style="{transform:`translate3d(0,${-distanceY*0.4}px,0)`}"
+        >下拉回弹</p>-->
+        <p v-for="(item,index) in data">{{item}}</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
+        <p>下拉刷新</p>
       </div>
     </div>
   </div>
@@ -37,11 +51,20 @@ export default {
       clientY: 0,
       scrollTop: 0,
       startY: 0,
-      currentY: 0
+      currentY: 0,
+      overDistance: 0,
+      text: '下拉刷新',
+      point: 150,
+      data: []
+    }
+  },
+  computed: {
+    getDistanceY() {
+      return this.distanceY * 0.4
     }
   },
   methods: {
-    touchStart(evt) {
+    start(evt) {
       this.startY = evt.clientY || evt.touches[0].clientY
     },
     scrolll(event) {
@@ -50,20 +73,47 @@ export default {
     pressMove(evt) {
       evt.stopPropagation()
       this.currentY = evt.clientY || evt.touches[0].clientY
-      //  滚动到顶部，并且下拉
+      //  滚动到顶部，并且是下拉手势
       if (this.scrollTop === 0 && this.currentY - this.startY > 0) {
         evt.preventDefault()
+        //超出的距离
         this.distanceY += Math.round(evt.deltaY)
+        if (this.distanceY > this.point) {
+          this.text = '松开刷新'
+        } else {
+          this.text = '下拉刷新'
+        }
       }
     },
     end(evt) {
       if (this.distanceY > 0) {
-        this.animation(this.distanceY, 0 - this.distanceY, val => {
-          this.distanceY = Math.round(val)
-        })
+        // 当下拉到达临界点
+        if (this.distanceY >= this.point) {
+          this.text = '更新中...'
+          this.animation(
+            this.distanceY,
+            this.point - this.distanceY,
+            val => {
+              this.distanceY = Math.round(val)
+            },
+            () => {
+              setTimeout(() => {
+                this.data.unshift(Math.floor(Math.random() * 10))
+                this.text = '更新完成...'
+                this.animation(this.distanceY, 0 - this.distanceY, val => {
+                  this.distanceY = Math.round(val)
+                })
+              }, 1000)
+            }
+          )
+        } else {
+          this.animation(this.distanceY, 0 - this.distanceY, val => {
+            this.distanceY = Math.round(val)
+          })
+        }
       }
     },
-    animation(startValue, diffValue, callback) {
+    animation(startValue, diffValue, moveIng, success) {
       let d = Math.ceil(500 / 16.7)
       let timer = null
       let t = 0
@@ -72,10 +122,11 @@ export default {
         if (t > d || d == 0) {
           cancelAnimationFrame(timer)
           t = 0
+          success && success()
         } else {
           t++
           let val = easeOutStrong(t, startValue, diffValue, d)
-          callback(val)
+          moveIng(val)
           timer = requestAnimationFrame(move)
         }
       }
@@ -95,6 +146,13 @@ export default {
 </script>
 
 <style scoped >
+.rebound-wrap p {
+  margin: 0;
+}
+.refresh {
+  margin-top: -22px;
+  text-align: center;
+}
 .rebound {
   position: relative;
   width: 300px;
@@ -106,13 +164,13 @@ export default {
   user-select: none;
 }
 .page {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   /* transition: transform 1s; */
   margin: auto;
   width: 100%;
-  height: 500px;
   background: skyblue;
   cursor: pointer;
   padding-left: 10px;

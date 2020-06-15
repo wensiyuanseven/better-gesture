@@ -55,6 +55,7 @@ export default {
         doubleTap() {
             console.log('双击')
         }
+        //......
     })
 </script>
 ```
