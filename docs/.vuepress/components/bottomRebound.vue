@@ -101,7 +101,7 @@ export default {
           },
           () => {
             // 运动完成之后重置translate 让滚动条滚动到底部
-            this.distanceY = 0
+            // this.distanceY = 0
             this.$nextTick(() => {
               this.$refs.wrap.scrollTop = this.maxScrollTop
             })

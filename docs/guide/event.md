@@ -167,7 +167,16 @@ export default {
 
 **案例：上拉加载**
 
-<pulldown></pulldown>
+<pullUp></pullUp>
+
+**案例：侧滑删除**
+
+<slidingDelete></slidingDelete>
+
+**案例:无限加载**
+
+<loadMore></loadMore>
+
 
 ## 原生事件
 

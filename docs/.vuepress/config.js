@@ -9,11 +9,14 @@ module.exports = {
     displayAllHeaders: true, // 默认值：false
     nav: [
         { text: '指南',
-        link: '/guide/'
+         link: '/guide/'
         },
         {
           text: 'API参考',
           link:'/api/'
+        },
+        { text: '综合案例',
+          link: '/demo/'
         },
         { text: 'GitHub', link: 'https://github.com/wensiyuanseven/better-gesture'}
       ],
@@ -27,6 +30,9 @@ module.exports = {
         '/api/': [
           '',
           'touch',
+        ],
+        '/demo/': [
+          ''
         ],
         // fallback
         '/': [
