@@ -15,6 +15,7 @@
         v-gesture:end="end"
         v-gesture:mouseLeave="end"
         ref="scroll"
+        
       >
         <p
           class="p-item"
