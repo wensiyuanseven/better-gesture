@@ -15,7 +15,6 @@
         v-gesture:end="end"
         v-gesture:mouseLeave="end"
         ref="scroll"
-        
       >
         <p
           class="p-item"
@@ -100,6 +99,7 @@ export default {
       this.pageHeight = this.$refs.page.clientHeight
       this.scrollHeight = this.$refs.scroll.clientHeight
     })
+    console.log(this,'---',this.data)
   },
   methods: {
     start(evt) {
