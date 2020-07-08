@@ -1,6 +1,6 @@
 {
-  "name": "better-gesture",
-  "version": "0.1.6",
+  "name": "@wensiyuanseven/better-gesture",
+  "version": "0.1.8",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
   "description": "A gesture library compatible with multiple terminals (native, PC, mobile, Vue, applet)",
@@ -54,6 +54,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wensiyuanseven/better-gesture.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wensiyuanseven/better-gesture/issues"
   },
   "browserslist": [
     "> 1%",
