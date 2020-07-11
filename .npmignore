@@ -1,0 +1,16 @@
+# 忽略目录
+src/
+public/
+node_modules/
+docs/
+
+# 忽略指定文件
+vue.config.js
+babel.config.js
+.vscode
+.temp
+lib/better-gesture.common.js
+lib/better-gesture.common.js.map
+lib/better-gesture.umd.js
+lib/better-gesture.umd.js.map
+lib/demo.html
