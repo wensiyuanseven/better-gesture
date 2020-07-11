@@ -565,7 +565,7 @@ export default {
   betterGesture.on('pressMove')
 ```
 
-## 驼峰或短横线分隔
+## 支持驼峰或短横线分隔
 
  ``` html
 <div v-gesture:pressMove="pressMove"> </div>
