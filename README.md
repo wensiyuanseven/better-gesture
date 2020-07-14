@@ -94,3 +94,5 @@ export default {
     })
 </script>
 ```
+
+更多用法请查看  <https://wensiyuanseven.github.io/better-gesture/>

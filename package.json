@@ -10,7 +10,8 @@
     "lint": "vue-cli-service lint",
     "lib": "vue-cli-service build --target lib --name better-gesture --dest lib ./src/lib/index.js",
     "docs:dev": "vuepress dev docs --temp .temp",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "d": "bash deploy.sh"
   },
   "main": "lib/better-gesture.umd.min.js",
   "unpkg": "lib/better-gesture.umd.min.js",
