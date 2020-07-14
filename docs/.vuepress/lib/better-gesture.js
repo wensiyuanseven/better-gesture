@@ -131,7 +131,7 @@
 
             this._cancelAllHandler = this.cancelAll.bind(this);
 
-            window.addEventListener('scroll', this._cancelAllHandler);
+            // window&&window.addEventListener('scroll', this._cancelAllHandler);
 
             this.preV = { x: null, y: null };
             this.pinchStartLen = null;
@@ -367,13 +367,13 @@
             this.Observer._Observer = {}
             // 状态滞空
             this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout =this.lastTime= this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
-            window.removeEventListener('scroll', this._cancelAllHandler);
+            // window&&window.removeEventListener('scroll', this._cancelAllHandler);
             return null;
         }
     }
 
-(function(){
-   if(window!=="undefined"){
-    window.BetterGesture = BetterGesture;
-   }
-})();
+// (function(){
+//    if(window&&window!=="undefined"){
+//     window.BetterGesture = BetterGesture;
+//    }
+// })();

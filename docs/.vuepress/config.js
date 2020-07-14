@@ -1,4 +1,5 @@
 module.exports = {
+  // base:"/<REPO>/",
 	title:"better-gesture",
 	description:"一个极小的,可兼容原生JS,Vue,PC,Mobile,小程序的多端手势库",
 	head:[
