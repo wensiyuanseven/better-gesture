@@ -38,7 +38,9 @@
             return 'Mini'
         }
     }
-
+    function isWindow( obj ) {
+        return obj != null && obj === obj.window;
+    }
      class Observer {
         constructor(el) {
             this._Observer = {}
@@ -87,6 +89,7 @@
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
+            this.isWindow=isWindow()
             this.Observer = new Observer(this.element)
             if (this.userAgent === 'Mini') {
                 // 小程序挂载到page实例上
@@ -150,7 +153,7 @@
 
             this._cancelAllHandler = this.cancelAll.bind(this);
 
-            window!==undefined&&window.addEventListener('scroll', this._cancelAllHandler);
+            this.isWindow&&window.addEventListener('scroll', this._cancelAllHandler);
 
             this.preV = { x: null, y: null };
             this.pinchStartLen = null;
@@ -386,13 +389,13 @@
             this.Observer._Observer = {}
             // 状态滞空
             this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout =this.lastTime= this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
-            window!==undefined&& window.removeEventListener('scroll', this._cancelAllHandler);
+            this.isWindow&& window.removeEventListener('scroll', this._cancelAllHandler);
             return null;
         }
     }
 
 (function(){
-   if(window!==undefined){
+   if(isWindow()){
     window.BetterGesture = BetterGesture;
    }
 })();

@@ -1,4 +1,4 @@
-import  gesture  from './lib/index'
+import  gesture  from './../../src/lib/index'
 
 export default ({
     Vue
