@@ -28,10 +28,14 @@
         return angle * 180 / Math.PI;
     }
     function getUserAgent() {
-        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            return 'Mobile'
-        } else {
-            return 'PC'
+        try {
+            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                return 'Mobile'
+            } else {
+                return 'PC'
+            }
+        } catch (e) {
+            return 'Mini'
         }
     }
 
@@ -83,28 +87,28 @@
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
-            this.start = this.start.bind(this);
-            this.move = this.move.bind(this);
-            this.end = this.end.bind(this);
-            this.cancel = this.cancel.bind(this);
-            this.mouseOver = this.mouseOver.bind(this);
-            this.mouseOut = this.mouseOut.bind(this);
             this.Observer = new Observer(this.element)
+            if (this.userAgent === 'Mini') {
+                // 小程序挂载到page实例上
+                this.element.start = this.start.bind(this)
+                this.element.move = this.move.bind(this)
+                this.element.end = this.end.bind(this)
+                this.element.cancel = this.cancel.bind(this)
+            }else{
+                this.start = this.start.bind(this);
+                this.move = this.move.bind(this);
+                this.end = this.end.bind(this);
+                this.cancel = this.cancel.bind(this);
+                this.mouseOver = this.mouseOver.bind(this);
+                this.mouseOut = this.mouseOut.bind(this);
+            }
             if (this.userAgent === 'Mobile') {
                 this.element.addEventListener("touchstart", this.start, false);
                 this.element.addEventListener("touchmove", this.move, false);
                 this.element.addEventListener("touchend", this.end, false);
                 this.element.addEventListener("touchcancel", this.cancel, false);
-                this.Observer.register('touchStart', option.touchStart)
-                this.Observer.register('touchMove', option.touchMove)
-                this.Observer.register('touchEnd', option.touchEnd)
-                this.Observer.register('touchCancel', option.touchCancel)
-                this.Observer.register('moreFingerStart', option.moreFingerStart)
-                this.Observer.register('moreFingerEnd', option.moreFingerEnd)
-                this.Observer.register('pinch', option.pinch)
-                this.Observer.register('twoFingerPressMove', option.twoFingerPressMove)
-                this.Observer.register('rotate', option.rotate)
-            } else {
+            }
+            if(this.userAgent === 'PC'){
                 this.mouseLeave=this.mouseLeave.bind(this)
                 this.element.addEventListener("mousedown", this.start, false);
                 this.element.addEventListener("mousemove", this.move, false);
@@ -112,14 +116,9 @@
                 this.element.addEventListener("mouseover", this.mouseOver, false);
                 this.element.addEventListener("mouseout", this.mouseOut, false);
                 this.element.addEventListener("mouseleave",this.mouseLeave,false)
-
-                this.Observer.register("mouseDown", option.mouseDown);
-                this.Observer.register("mouseMove", option.mouseMove);
-
-                this.Observer.register("mouseUp", option.mouseUp);
-                this.Observer.register('mouseOver', option.mouseOver)
-                this.Observer.register('mouseOut', option.mouseOut)
             }
+
+            // PC Mobile  Mini
             this.Observer.register('start', option.start)
             this.Observer.register('end', option.end)
             this.Observer.register('pressMove', option.pressMove)
@@ -128,10 +127,30 @@
             this.Observer.register('doubleTap', option.doubleTap)
             this.Observer.register('longTap', option.longTap)
             this.Observer.register('singleTap', option.singleTap)
+            // Mobile Mini
+            if(this.userAgent === 'Mobile'||this.userAgent === 'Mini'){
+                this.Observer.register('touchStart', option.touchStart)
+                this.Observer.register('touchMove', option.touchMove)
+                this.Observer.register('touchEnd', option.touchEnd)
+                this.Observer.register('touchCancel', option.touchCancel)
+                this.Observer.register('moreFingerStart', option.moreFingerStart)
+                this.Observer.register('multipointEnd', option.multipointEnd)
+                this.Observer.register('pinch', option.pinch)
+                this.Observer.register('twoFingerPressMove', option.twoFingerPressMove)
+                this.Observer.register('rotate', option.rotate)
+            }else{
+                // PC
+                this.Observer.register("mouseDown", option.mouseDown);
+                this.Observer.register("mouseMove", option.mouseMove);
+                this.Observer.register("mouseUp", option.mouseUp);
+                this.Observer.register('mouseOver', option.mouseOver)
+                this.Observer.register('mouseOut', option.mouseOut)
+            }
+
 
             this._cancelAllHandler = this.cancelAll.bind(this);
 
-            // window&&window.addEventListener('scroll', this._cancelAllHandler);
+            window!==undefined&&window.addEventListener('scroll', this._cancelAllHandler);
 
             this.preV = { x: null, y: null };
             this.pinchStartLen = null;
@@ -153,7 +172,7 @@
         start(evt) {
             this.now = Date.now();
             this.isPress = true
-            if (this.userAgent === 'Mobile') {
+            if (this.userAgent === 'Mobile'|| this.userAgent === 'Mini') {
                 this.x1 = evt.touches[0].pageX
                 this.y1 = evt.touches[0].pageY
             } else {
@@ -163,7 +182,7 @@
 
             this.delta = this.now - (this.last || this.now);
             this.Observer.dispatch('start',evt);
-            this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchStart' : 'mouseDown', evt);
+            this.Observer.dispatch(this.userAgent === 'Mobile'|| this.userAgent === 'Mini' ? 'touchStart' : 'mouseDown', evt);
             if (this.preTapPosition.x !== null) {
                 this.isDoubleTap = (this.delta > 0 && this.delta <= 250 && Math.abs(this.preTapPosition.x - this.x1) < 30 && Math.abs(this.preTapPosition.y - this.y1) < 30);
                 if (this.isDoubleTap) clearTimeout(this.singleTapTimeout);
@@ -191,7 +210,7 @@
             let preV = this.preV,
                 currentX = 0,
                 currentY = 0;
-            if (this.userAgent === 'Mobile') {
+            if (this.userAgent === 'Mobile'|| this.userAgent === 'Mini') {
                 currentX = evt.touches[0].pageX
                 currentY = evt.touches[0].pageY
             } else {
@@ -252,7 +271,7 @@
                     this.Observer.dispatch('pressMove', evt)
                 }
             }
-            this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchMove' : 'mouseMove', evt)
+            this.Observer.dispatch(this.userAgent === 'Mobile'|| this.userAgent === 'Mini' ? 'touchMove' : 'mouseMove', evt)
 
             this._cancelLongTap();
             this.x2 = currentX;
@@ -269,7 +288,7 @@
             this.isPress = false
             let self = this;
             if (evt.touches && evt.touches.length < 2) {
-                this.Observer.dispatch('moreFingerEnd', evt)
+                this.Observer.dispatch('multipointEnd', evt)
                 this.sx2 = this.sy2 = null;
             }
 
@@ -299,7 +318,7 @@
                 }
             }
             this.Observer.dispatch('end',evt);
-            this.Observer.dispatch(this.userAgent === 'Mobile' ? 'touchEnd' : 'mouseUp', evt)
+            this.Observer.dispatch(this.userAgent === 'Mobile'|| this.userAgent === 'Mini' ? 'touchEnd' : 'mouseUp', evt)
             this.preV.x = 0;
             this.preV.y = 0;
             this.zoom = 1;
@@ -350,7 +369,7 @@
             if (this.tapTimeout) clearTimeout(this.tapTimeout);
             if (this.longTapTimeout) clearTimeout(this.longTapTimeout);
             if (this.swipeTimeout) clearTimeout(this.swipeTimeout);
-            if (this.userAgent === 'Mobile') {
+            if (this.userAgent === 'Mobile'|| this.userAgent === 'Mini') {
                 this.element.removeEventListener("touchstart", this.start);
                 this.element.removeEventListener("touchmove", this.move);
                 this.element.removeEventListener("touchend", this.end);
@@ -367,13 +386,13 @@
             this.Observer._Observer = {}
             // 状态滞空
             this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout =this.lastTime= this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
-            // window&&window.removeEventListener('scroll', this._cancelAllHandler);
+            window!==undefined&& window.removeEventListener('scroll', this._cancelAllHandler);
             return null;
         }
     }
 
-// (function(){
-//    if(window&&window!=="undefined"){
-//     window.BetterGesture = BetterGesture;
-//    }
-// })();
+(function(){
+   if(window!==undefined){
+    window.BetterGesture = BetterGesture;
+   }
+})();

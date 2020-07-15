@@ -1,18 +1,18 @@
 # better-gesture
 
  ![minzip](https://img.shields.io/bundlephobia/minzip/better-gesture) ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/better-gesture) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/better-gesture)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/better-gesture)
- 
+
  文档地址: <https://wensiyuanseven.github.io/better-gesture>
 
 ## 介绍
 
 ### 方便、轻量,可用于PC,Mobile, Vue,小程序的多端手势库
 
-- **支持多端：PC,Mobile,小程序,Vue**
+- **支持多端：PC,Mobile,Vue,小程序**
 - **极小的文件大小,无需安装任何依赖，压缩后代码仅有**<Badge vertical="middle" text="3.6KB"/>
 - **简洁的API设计**
 - **优秀的性能**
-- **丰富的手势事件,支持canvas手势监听**
+- **丰富的手势事件：doubleTap longTap pressMove rotate pinch swipe ...**
 - **支持动态销毁,创建手势事件**
 
 ## 安装
@@ -34,7 +34,39 @@ npm install better-gesture
 <script src='https://unpkg.com/better-gesture@0.1.6/lib/better-gesture.umd.min.js'></script>
 ```
 
-## 用法
+# 用法
+
+## 直接script引入
+
+``` html
+<script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
+```
+
+``` html
+<div id="example"></div>
+
+<script>
+  new BetterGesture(document.getElementById('example'), {
+      //拖拽
+      pressMove(evt) {
+          console.log(evt.deltaX, evt.deltaY)
+      },
+      // 旋转
+      rotate(evt) {
+          console.log(evt.angle)
+      },
+      // 缩放
+      pinch(evt) {
+          console.log(evt.zoom)
+      },
+      // 滑动
+      swipe(evt) {
+          console.log(evt.direction)
+      }
+      //......
+  })
+</script>
+```
 
 ## 在vue中使用
 
@@ -55,46 +87,76 @@ Vue.use(gesture)
 <script>
 export default {
   methods: {
-    //拖拽
-    pressMove(e) {
-      console.log(e.deltaX)
-      console.log(e.deltaY)
-    },
-    // 双击
-    doubleTap() {
-      console.log('双击')
-    }
-    //......
+     //拖拽
+      pressMove(evt) {
+          console.log(evt.deltaX, evt.deltaY)
+      },
+      // 旋转
+      rotate(evt) {
+          console.log(evt.angle)
+      },
+      // 缩放
+      pinch(evt) {
+          console.log(evt.zoom)
+      },
+      // 滑动
+      swipe(evt) {
+          console.log(evt.direction)
+      }
+      //......
   }
 }
 </script>
+
 ```
 
-## 在小程序中使用  todo
+## 在小程序中使用
 
-## 直接script引入
+> 建议使用catch捕获事件，否则易造成监听动画卡顿
 
 ``` html
-<script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
+<!-- wxml -->
+<!-- 必须初始化事件touchstart,touchmove,touchend,touchcancel-->
+<!-- 事件名必须定义为start,move，end,cancel -->
+<!-- 事件名start,move，end,cancel已经在new BetterGesture()时注入过了,不需要在page中再次定义-->
+<view class='container'>
+    <view
+      catch:touchstart="start"
+      catch:touchmove="move"
+      catch:touchend="end"
+      catch:touchcancel="cancel">
+    </view>
+</view>
 ```
 
-``` html
-<div id="example"></div>
-
-<script>
-    new BetterGesture(document.getElementById('example'), {
-        // 拖拽
-        pressMove(e) {
-            console.log(e.deltaX)
-            console.log(e.deltaY)
-        },
-        // 双击
-        doubleTap() {
-            console.log('双击')
-        }
-        //......
-    })
-</script>
+```js
+// js
+import BetterGesture from './../utils/better-gesture.js'
+Page({
+    onLoad() {
+        new BetterGesture(this, {
+            //拖拽
+            pressMove(evt) {
+                console.log(evt.deltaX, evt.deltaY)
+            },
+            // 旋转
+            rotate(evt) {
+                console.log(evt.angle)
+            },
+            // 缩放
+            pinch(evt) {
+                console.log(evt.zoom)
+            },
+            // 滑动
+            swipe(evt) {
+                console.log(evt.direction)
+            }
+            //......
+        })
+    }
+})
 ```
+
+小程序代码片段:  <https://developers.weixin.qq.com/s/zMnroRmF7fiT>
 
 更多用法请查看: <https://wensiyuanseven.github.io/better-gesture>

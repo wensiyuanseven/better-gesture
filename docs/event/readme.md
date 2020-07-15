@@ -7,69 +7,69 @@ sidebarDepth: 2
 
 ## 自定义事件
 
-### tap `点按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### tap `点按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-> 立即触发
+> 按下立即触发
 
-   ``` html
-    <div v-gesture:tap="tap"> </div>
-   ```
+``` html
+<div v-gesture:tap="tap"> </div>
+```
 
-   ``` js
-    methods: {
-     tap() {
-         console.log('触发点按')
-     }
-   }
-   ```
+``` js
+methods: {
+  tap() {
+    console.log('触发点按')
+  }
+}
+```
 
-### singleTap `单击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### singleTap `单击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
 > 延迟250ms后触发
 
-   ``` html
-    <div v-gesture:singleTap="tap"> </div>
-   ```
+``` html
+<div v-gesture:singleTap="singleTap"> </div>
+```
 
-   ``` js
-    methods: {
-     tap() {
-         console.log('触发单击')
-     }
-   }
-   ```
+``` js
+methods: {
+  singleTap() {
+    console.log('触发单击')
+  }
+}
+```
 
-### longTap `长按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### longTap `长按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
->长按屏幕750ms触发
+>长按750ms触发
 
-   ``` html
-    <div v-gesture:longTap="longTap"> </div>
-   ```
+``` html
+<div v-gesture:longTap="longTap"> </div>
+```
 
-   ``` js
-    methods: {
-     longTap() {
-         console.log('触发长按')
-     }
-   }
-   ```
+``` js
+methods: {
+  longTap() {
+    console.log('触发长按')
+  }
+}
+  ```
 
-### doubleTap `双击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### doubleTap `双击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
 >双击间隔小于250ms触发
 
-   ``` html
-    <div v-gesture:doubleTap="doubleTap"> </div>
-   ```
+``` html
+<div v-gesture:doubleTap="doubleTap"> </div>
+```
 
-   ``` js
-    methods: {
-     doubleTap() {
-         console.log('触发双击')
-     }
-   }
-   ```
+``` js
+methods: {
+  doubleTap() {
+    console.log('触发双击')
+  }
+}
+```
 
 **双击放大图片局部区域**
 
@@ -151,11 +151,27 @@ export default {
 
 :::
 
-### pressMove `拖拽`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### pressMove `拖拽`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
 - `event.deltaX` 最后两点坐标X轴差值
 - `event.deltaY` 最后两点坐标Y轴差值
 - `event.deltaTime` 最后两点时间差(ms)
+
+``` html
+<div v-gesture:pressMove="pressMove"> </div>
+```
+
+``` js
+methods: {
+  pressMove(event) {
+    console.log(event.deltaX)
+    console.log(event.deltaY)
+    console.log(event.deltaTime)
+  }
+}
+```
+
+**拖拽+边界限制**
 
 <pressMove></pressMove>
 
@@ -237,11 +253,23 @@ export default {
 
 :::
 
-### swipe `滑动`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### swipe `滑动`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
 > 滑动偏移量大于30触发
 
  `event.direction` 滑动方向 Left/Right/Up/Down
+
+``` html
+<div v-gesture:swipe="swipe"> </div>
+```
+
+``` js
+methods: {
+  swipe(event) {
+    console.log(event.direction)
+  }
+}
+```
 
 **侧滑删除**
 
@@ -311,12 +339,25 @@ export default {
 
 :::
 
-### rotate `双指旋转`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### rotate `双指旋转`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
  `event.angle`  双指之间旋转的角度
    > 不支持PC端，请在移动端查看
 
+``` html
+<div v-gesture:rotate="rotate"> </div>
+```
+
+``` js
+methods: {
+  rotate(event) {
+    console.log(event.angle)
+  }
+}
+```
+
  <rotate></rotate>
+
  ::: details 点击查看代码
 
 ``` html
@@ -368,13 +409,26 @@ export default {
 
 :::
 
-### pinch `双指缩放`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### pinch `双指缩放`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
  `event.zoom`  双指之间缩放距离比值
 
   > 不支持PC端，请在移动端查看
 
+``` html
+<div v-gesture:pinch="pinch"> </div>
+```
+
+``` js
+methods: {
+  pinch(event) {
+    console.log(event.zoom)
+  }
+}
+```
+
 <pinch></pinch>
+
 ::: details 点击查看代码
 
 ``` html
@@ -426,11 +480,11 @@ export default {
 
 :::
 
-### twoFingerPressMove `两根手指拖拽`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### twoFingerPressMove `两根手指拖拽`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
  ``` html
-    <div v-gesture:twoFingerPressMove="twoFingerPressMove"> </div>
-   ```
+  <div v-gesture:twoFingerPressMove="twoFingerPressMove"> </div>
+ ```
 
    ``` js
     methods: {
@@ -440,7 +494,7 @@ export default {
    }
 ```
 
-### moreFingerStart `多根手指触摸屏幕`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### moreFingerStart `多根手指触摸屏幕`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
    ``` html
     <div v-gesture:moreFingerStart="moreFingerStart"> </div>
@@ -454,7 +508,7 @@ export default {
    }
 ```
 
-### moreFingerEnd `手指离开`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### moreFingerEnd `手指离开`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
 >手指离开，屏幕只剩一个手指或零个手指触发
 
@@ -470,119 +524,239 @@ export default {
    }
 ```
 
-## 事件解绑
+### start `手指触摸屏幕或鼠标按下`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-### 解绑单个事件
+``` html
+<div v-gesture:start="start"> </div>
+```
 
- **`Vue`**
+``` js
+methods: {
+  start() {
+    console.log('手指触摸屏幕或鼠标按下触发')
+  }
+}
+```
+
+### end `手指抬起或鼠标释放`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+``` html
+<div v-gesture:end="end"> </div>
+```
+
+``` js
+methods: {
+  end() {
+    console.log('手指抬起或鼠标释放触发')
+  }
+}
+```
+
+## 移除单个事件
+
+### Vue
 
  ``` html
-<div v-gesture:touch-move="tap"> </div>
-
-<div v-gesture:touch-move="pressMove"> </div>
+<div v-gesture:tap="tap"  v-gesture:pressMove="pressMove"> </div>
 ```
 
   ``` js
   methods: {
     pressMove(event) {
-      // 解绑点按事件
+      // 移除点按事件
         event.gesture.off('tap')
     },
-    // 触发解绑之后tap事件不再生效
+    // 触发移除之后tap事件不再生效
     tap(){
-      conso.log('---')
+      conso.log('tap')
     }
   }
   ```
 
- **`原生js`**
+### 原生JS
 
  ``` js
  let  betterGesture= new BetterGesture(document.getElementById('app'), {
-        pressMove(e) {
-            console.log(e.deltaX)
+        pressMove(event) {
+            console.log(event.deltaX)
         }
     })
-    // 解绑
+    // 移除
   betterGesture.off('pressMove')
 
   ```
 
-### 解绑所有绑定的事件
+### 小程序
 
- **`Vue`**
+``` html
+<!-- wxml -->
+<view class='container'>
+    <view
+      catch:touchstart="start"
+      catch:touchmove="move"
+      catch:touchend="end"
+      catch:touchcancel="cancel">
+    </view>
+</view>
+```
 
-> Vue在组件解销毁时会解绑所有事件
+```js
+// js
+import BetterGesture from './../utils/better-gesture.js'
+Page({
+    onLoad() {
+        new BetterGesture(this, {
+            //拖拽
+            pressMove(event) {
+                console.log(event.deltaX, event.deltaY)
+            },
+            // 滑动
+            swipe(event) {
+              // 触发滑动事件之后移除拖拽事件
+              event.gesture.off('pressMove')
+            }
+        })
+    }
+})
+```
 
-**手动解绑**
+## 移除所有注册的事件
+
+### Vue
+
+> Vue在组件解销毁时会移除所有绑定的事件
+
+**手动移除**
 
  ``` html
-<div v-gesture:touch-move="pressMove"> </div>
+<div v-gesture:pressMove="pressMove"> </div>
 ```
 
   ``` js
   methods: {
     pressMove(event) {
-      // 解绑所有事件
+      // 移除所有注册过的事件
         event.gesture.destroy()
     }
   }
   ```
 
-  **`原生JS`**
+  **`小程序`**
+
+``` html
+<!-- wxml -->
+<view class='container'>
+    <view
+      catch:touchstart="start"
+      catch:touchmove="move"
+      catch:touchend="end"
+      catch:touchcancel="cancel">
+    </view>
+</view>
+```
+
+```js
+// js
+import BetterGesture from './../utils/better-gesture.js'
+Page({
+    onLoad() {
+        new BetterGesture(this, {
+            //拖拽
+            pressMove(event) {
+                console.log(event.deltaX, event.deltaY)
+            },
+            // 滑动
+            swipe(event) {
+              // 触发滑动事件之后移除所有事件
+              evt.gesture.destroy()
+            }
+        })
+    }
+})
+```
+
+### 原生JS
 
  ``` js
  let  betterGesture= new BetterGesture(document.getElementById('app'), {
         pressMove(e) {
-            console.log(e.deltaX)
+            console.log(event.deltaX)
         }
     })
-    // 解绑所有事件
+    // 移除所有事件
   betterGesture.destroy()
 
   ```
 
 ## 动态绑定事件
 
-**`Vue`**
+### Vue
 
 ```html
 <template>
-  <section class="trends" v-gesture:tap="tap">点按</section>
+  <section  v-gesture:tap="tap">点按</section>
 </template>
-
 ```
 
 ```js
 <script>
 export default {
-  name: 'trends',
-  data() {
-    return {}
-  },
-  components: {},
-  watch: {},
-  mounted() {},
   methods: {
     tap(event) {
       // 动态绑定拖拽事件
       event.gesture.on('pressMove', this.pressMove)
     },
     pressMove(event) {
-        console.log(event,'触发')
+        console.log(event,'我是动态绑定的事件')
     }
   }
 }
 </script>
 ```
 
-**`原生JS`**
+### 小程序
+
+``` html
+<!-- wxml -->
+<view class='container'>
+    <view
+      catch:touchstart="start"
+      catch:touchmove="move"
+      catch:touchend="end"
+      catch:touchcancel="cancel">
+    </view>
+</view>
+```
+
+```js
+// js
+import BetterGesture from './../utils/better-gesture.js'
+Page({
+    onLoad() {
+        new BetterGesture(this, {
+            // 滑动
+            swipe(event) {
+              // 动态绑定pressMove事件
+             event.gesture.on('pressMove', this.pressMove)
+            }
+        })
+    },
+    //
+    pressMove(event){
+      console.log(event,'我是动态绑定的事件')
+    }
+})
+```
+
+### 原生JS
 
 ``` js
-  let  betterGesture= new BetterGesture(document.getElementById('app'))
-  let pressMove = function() {}
-  //动态绑定事件
-  betterGesture.on('pressMove')
+let  betterGesture= new BetterGesture(document.getElementById('app'))
+let pressMove = function(event) {
+    console.log(event,'我是动态绑定的事件')
+}
+//动态绑定事件
+betterGesture.on('pressMove')
 ```
 
 ## 支持驼峰或短横线分隔
@@ -603,15 +777,15 @@ export default {
 
 ## 支持以下原生事件
 
-### `touchStart`   <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### `touchStart`   <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-### `touchMove`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### `touchMove`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-### `touchEnd`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### `touchEnd`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-### `touchcancel`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### `touchCancel`  <Badge vertical="middle" text="Mobile"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
-### `mousedown`  <Badge vertical="middle" text="PC"/>
+### `mouseDown`  <Badge vertical="middle" text="PC"/>
 
 ### `mouseMove`  <Badge vertical="middle" text="PC"/>
 

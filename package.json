@@ -18,6 +18,7 @@
   "dependencies": {
     "vue": "^2.0.0"
   },
+  "miniprogram": "lib",
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",

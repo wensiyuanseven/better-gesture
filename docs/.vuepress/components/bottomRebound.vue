@@ -11,7 +11,7 @@
         ref="page"
       >
         <div>
-          <p class="item" v-for="item in 10">{{item}}</p>
+          <p class="item" v-for="item in 7">{{item}}</p>
         </div>
       </div>
     </div>
