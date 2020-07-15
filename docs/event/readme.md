@@ -41,6 +41,8 @@ sidebarDepth: 2
 
 ### longTap `长按`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
+>长按屏幕750ms触发
+
    ``` html
     <div v-gesture:longTap="longTap"> </div>
    ```
@@ -54,6 +56,8 @@ sidebarDepth: 2
    ```
 
 ### doubleTap `双击`  <Badge vertical="middle" text="PC"/>  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+>双击间隔小于250ms触发
 
    ``` html
     <div v-gesture:doubleTap="doubleTap"> </div>
@@ -436,7 +440,7 @@ export default {
    }
 ```
 
-### moreFingerStart `多根手指点按`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+### moreFingerStart `多根手指触摸屏幕`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
 
    ``` html
     <div v-gesture:moreFingerStart="moreFingerStart"> </div>
@@ -445,7 +449,23 @@ export default {
    ``` js
     methods: {
      moreFingerStart() {
-         console.log('多根手指点按')
+         console.log('多根手指触摸屏幕')
+     }
+   }
+```
+
+### moreFingerEnd `手指离开`  <Badge vertical="middle" text="Mobel"/>  <Badge vertical="middle" text="Vue"/>   <Badge vertical="middle" text="小程序"/>
+
+>手指离开，屏幕只剩一个手指或零个手指触发
+
+   ``` html
+    <div v-gesture:moreFingerEnd="moreFingerEnd"> </div>
+   ```
+
+   ``` js
+    methods: {
+     moreFingerStart() {
+         console.log('手指离开，屏幕只剩一个手指或零个手指触发')
      }
    }
 ```
@@ -601,7 +621,7 @@ export default {
 
 ### `mouseOut`  <Badge vertical="middle" text="PC"/>
 
-> 注意:必需使用驼峰或短横线注册事件,否则不生效
+> 注意:请使用驼峰或短横线注册原生事件,否则不生效
 
  ``` html
 <div v-gesture:touchStart="touchStart"> </div>

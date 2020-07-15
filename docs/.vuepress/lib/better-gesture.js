@@ -100,7 +100,7 @@
                 this.Observer.register('touchEnd', option.touchEnd)
                 this.Observer.register('touchCancel', option.touchCancel)
                 this.Observer.register('moreFingerStart', option.moreFingerStart)
-                this.Observer.register('multipointEnd', option.multipointEnd)
+                this.Observer.register('moreFingerEnd', option.moreFingerEnd)
                 this.Observer.register('pinch', option.pinch)
                 this.Observer.register('twoFingerPressMove', option.twoFingerPressMove)
                 this.Observer.register('rotate', option.rotate)
@@ -269,7 +269,7 @@
             this.isPress = false
             let self = this;
             if (evt.touches && evt.touches.length < 2) {
-                this.Observer.dispatch('multipointEnd', evt)
+                this.Observer.dispatch('moreFingerEnd', evt)
                 this.sx2 = this.sy2 = null;
             }
 
