@@ -1,5 +1,5 @@
 {
-  "name": "@wensiyuanseven/better-gesture",
+  "name": "better-gesture",
   "version": "0.2.0",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
@@ -26,9 +26,7 @@
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.5.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+
   "keywords": [
     "gesture",
     "touch",
