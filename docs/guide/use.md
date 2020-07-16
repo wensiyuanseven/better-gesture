@@ -105,7 +105,7 @@ import BetterGesture from './../utils/better-gesture.js'
 <!-- wxml -->
 <!-- 必须初始化事件touchstart,touchmove,touchend,touchcancel-->
 <!-- 事件名必须定义为start,move，end,cancel -->
-<!-- 事件名start,move，end,cancel已经在new BetterGesture() 时注入到了Page中,不需要在Page中再次定义-->
+<!-- 事件名start,move，end,cancel已经new BetterGesture()时注入到了Page中,不需要在Page中再次定义-->
 <view class='container'>
     <view
       catch:touchstart="start"
