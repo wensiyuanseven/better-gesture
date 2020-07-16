@@ -1,5 +1,5 @@
 {
-  "name": "better-gesture",
+  "name": "@wensiyuanseven/better-gesture",
   "version": "0.2.0",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
@@ -27,7 +27,7 @@
     "vuepress": "^1.5.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "gesture",
