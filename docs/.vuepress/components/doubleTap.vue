@@ -55,7 +55,7 @@ export default {
 <style scoped >
 .double-tap {
   height: 300px;
-  width: 350px;
+  width: 300px;
   display: flex;
   overflow: hidden;
 }

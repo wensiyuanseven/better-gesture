@@ -1,11 +1,11 @@
 <template>
   <section>
-        <p>拉力系数：{{getF}}</p>
-    <p>手指/鼠标滑动速度：{{deltaY}}</p>
+    <p>拉力系数：{{getF}}</p>
+    <p>滚动速度：{{deltaY}}</p>
     <p>滚动距离：{{bufferDis}}</p>
     <p>滚动时间：{{time}}ms</p>
-    <p>最大滚动高度：{{minHeight}}</p>
-    <p>已滚动的高度：{{targer}}</p>
+    <p>最大滚动高度：{{-minHeight}}</p>
+    <p>已滚动的高度：{{-targer}}</p>
     <div class="page" ref="page">
       <div
         class="scroll"

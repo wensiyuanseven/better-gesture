@@ -5,168 +5,6 @@ sidebarDepth: 2
 
 # 常见案例
 
-## 双击放大图片局部区域
-
-<doubleTap></doubleTap>
-
-::: details 点击查看代码
-
-``` html
-<template>
-  <section class="double-tap">
-    <img
-      src="./../public/demo.jpg"
-      :style="{transform:`translate3d(${distanceX}px,${distanceY}px,0) scale3d(${scaleX},${scaleY},1)`}"
-      class="img-demo"
-      ref="imgDemo"
-      v-gesture:doubleTap="doubleTap"
-    />
-  </section>
-</template>
-
-<script>
-export default {
-  name: 'doubleTap',
-  data() {
-    return {
-      distanceX: 0,
-      distanceY: 0,
-      scaleX: 1,
-      scaleY: 1
-    }
-  },
-  methods: {
-    // 双击
-    doubleTap(evt) {
-      if (this.scaleX > 1.5) {
-        this.scaleX = this.scaleY = 1
-        this.distanceX = this.distanceY = 0
-      } else {
-        let box = this.$refs.imgDemo.getBoundingClientRect()
-        let xDis = 0
-        let yDis = 0
-        // pc
-        if (evt.clientX) {
-          xDis = evt.clientX - box.left
-          yDis = evt.clientY - box.top
-        } else {
-          // mobile
-          xDis = evt.changedTouches[0].clientX - box.left
-          yDis = evt.changedTouches[0].clientY - box.top
-        }
-        //移动的距离=触摸点到图片中心点的距离
-        let x = box.width - box.width / 2 - xDis
-        let y = box.height - box.height / 2 - yDis
-        this.scaleX = this.scaleY = 2
-        this.distanceX = x
-        this.distanceY = y
-      }
-    }
-  }
-}
-</script>
-
-<style scoped >
-.double-tap {
-  height: 300px;
-  width: 350px;
-  display: flex;
-  overflow: hidden;
-}
-.img-demo {
-  transition: all 0.3s;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  cursor: pointer;
-}
-</style>
-```
-
-:::
-
-## 拖拽+边界限制
-
-<pressMove></pressMove>
-
-::: details 点击查看代码
-
-``` html
-<template>
-  <div class="press-move">
-    <p>deltaX:{{deltaX}}</p>
-    <p>deltaY:{{deltaY}}</p>
-    <p>deltaTime:{{deltaTime}}ms</p>
-    <section class="wrap">
-      <div
-        class="drag"
-        v-gesture:pressMove="pressMove"
-        :style="{transform:`translate3d(${distanceX}px,${distanceY}px,0)`}"
-      ></div>
-    </section>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'pressMove',
-  data() {
-    return {
-      distanceX: 0,
-      distanceY: 0,
-      deltaX: 0,
-      deltaY: 0,
-      deltaTime: 0
-    }
-  },
-  methods: {
-    pressMove(evt, abc) {
-      evt.preventDefault()
-      this.deltaX = evt.deltaX
-      this.deltaY = evt.deltaY
-      this.deltaTime = evt.deltaTime
-      let distanceX = this.distanceX + evt.deltaX
-      let distanceY = this.distanceY + evt.deltaY
-      //边界限制
-      if (distanceY < -100) {
-        distanceY = -100
-      } else if (distanceY > 100) {
-        distanceY = 100
-      }
-      if (distanceX < -100) {
-        distanceX = -100
-      } else if (distanceX > 100) {
-        distanceX = 100
-      }
-      this.distanceX = distanceX
-      this.distanceY = distanceY
-    }
-  }
-}
-</script>
-
-<style scoped >
-.press-move p {
-  margin: 0;
-}
-.wrap {
-  width: 300px;
-  height: 300px;
-  border: 1px solid skyblue;
-  display: flex;
-}
-.drag {
-  margin: auto;
-  width: 100px;
-  height: 100px;
-  background: skyblue;
-  cursor: pointer;
-}
-</style>
-```
-
-:::
-
 ## 双指旋转
 
  > 不支持PC端，请在移动端查看
@@ -627,6 +465,168 @@ export default {
 
 :::
 
+## 双击放大图片局部区域
+
+<doubleTap></doubleTap>
+
+::: details 点击查看代码
+
+``` html
+<template>
+  <section class="double-tap">
+    <img
+      src="./../public/demo.jpg"
+      :style="{transform:`translate3d(${distanceX}px,${distanceY}px,0) scale3d(${scaleX},${scaleY},1)`}"
+      class="img-demo"
+      ref="imgDemo"
+      v-gesture:doubleTap="doubleTap"
+    />
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'doubleTap',
+  data() {
+    return {
+      distanceX: 0,
+      distanceY: 0,
+      scaleX: 1,
+      scaleY: 1
+    }
+  },
+  methods: {
+    // 双击
+    doubleTap(evt) {
+      if (this.scaleX > 1.5) {
+        this.scaleX = this.scaleY = 1
+        this.distanceX = this.distanceY = 0
+      } else {
+        let box = this.$refs.imgDemo.getBoundingClientRect()
+        let xDis = 0
+        let yDis = 0
+        // pc
+        if (evt.clientX) {
+          xDis = evt.clientX - box.left
+          yDis = evt.clientY - box.top
+        } else {
+          // mobile
+          xDis = evt.changedTouches[0].clientX - box.left
+          yDis = evt.changedTouches[0].clientY - box.top
+        }
+        //移动的距离=触摸点到图片中心点的距离
+        let x = box.width - box.width / 2 - xDis
+        let y = box.height - box.height / 2 - yDis
+        this.scaleX = this.scaleY = 2
+        this.distanceX = x
+        this.distanceY = y
+      }
+    }
+  }
+}
+</script>
+
+<style scoped >
+.double-tap {
+  height: 300px;
+  width: 350px;
+  display: flex;
+  overflow: hidden;
+}
+.img-demo {
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  cursor: pointer;
+}
+</style>
+```
+
+:::
+
+## 拖拽+边界限制
+
+<pressMove></pressMove>
+
+::: details 点击查看代码
+
+``` html
+<template>
+  <div class="press-move">
+    <p>deltaX:{{deltaX}}</p>
+    <p>deltaY:{{deltaY}}</p>
+    <p>deltaTime:{{deltaTime}}ms</p>
+    <section class="wrap">
+      <div
+        class="drag"
+        v-gesture:pressMove="pressMove"
+        :style="{transform:`translate3d(${distanceX}px,${distanceY}px,0)`}"
+      ></div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'pressMove',
+  data() {
+    return {
+      distanceX: 0,
+      distanceY: 0,
+      deltaX: 0,
+      deltaY: 0,
+      deltaTime: 0
+    }
+  },
+  methods: {
+    pressMove(evt, abc) {
+      evt.preventDefault()
+      this.deltaX = evt.deltaX
+      this.deltaY = evt.deltaY
+      this.deltaTime = evt.deltaTime
+      let distanceX = this.distanceX + evt.deltaX
+      let distanceY = this.distanceY + evt.deltaY
+      //边界限制
+      if (distanceY < -100) {
+        distanceY = -100
+      } else if (distanceY > 100) {
+        distanceY = 100
+      }
+      if (distanceX < -100) {
+        distanceX = -100
+      } else if (distanceX > 100) {
+        distanceX = 100
+      }
+      this.distanceX = distanceX
+      this.distanceY = distanceY
+    }
+  }
+}
+</script>
+
+<style scoped >
+.press-move p {
+  margin: 0;
+}
+.wrap {
+  width: 300px;
+  height: 300px;
+  border: 1px solid skyblue;
+  display: flex;
+}
+.drag {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background: skyblue;
+  cursor: pointer;
+}
+</style>
+```
+
+:::
+
 ## 自定义划屏
 
 ### 竖向划屏+边界回弹
@@ -638,11 +638,11 @@ export default {
 <template>
   <section>
     <p>拉力系数：{{getF}}</p>
-    <p>手指/鼠标滑动速度：{{deltaY}}</p>
+    <p>滚动速度：{{deltaY}}</p>
     <p>滚动距离：{{bufferDis}}</p>
     <p>滚动时间：{{time}}ms</p>
-    <p>最大滚动高度：{{minHeight}}</p>
-    <p>已滚动的高度：{{targer}}</p>
+    <p>最大滚动高度：{{-minHeight}}</p>
+    <p>已滚动的高度：{{-targer}}</p>
     <div class="page" ref="page">
       <div
         class="scroll"
@@ -868,11 +868,11 @@ p {
 ``` html
 <template>
   <section>
-    <p>手指/鼠标滑动速度：{{deltaY}}</p>
+    <p>滚动速度：{{deltaY}}</p>
     <p>滚动距离：{{bufferDis}}</p>
     <p>滚动时间：{{time}}ms</p>
-    <p>最大能滚动高度：{{minHeight}}</p>
-    <p>已滚动的高度：{{targer}}</p>
+    <p>最大能滚动高度：{{-Math.abs(minHeight)}}</p>
+    <p>已滚动的高度：{{-targer}}</p>
     <div class="page" ref="page">
       <div
         class="scroll"
@@ -1698,7 +1698,7 @@ export default {
 
 :::
 
-## 上拉底部回弹(移动端查看)
+## 上拉底部回弹
 
 <bottomRebound></bottomRebound>
 

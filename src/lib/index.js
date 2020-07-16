@@ -1,4 +1,4 @@
-import BetterGesture  from  './better-gesture.js'
+import BetterGesture ,{getUserAgent} from  './better-gesture.js'
 
 let CACHE = []
 
@@ -37,32 +37,38 @@ let getEventName = function (name) {
         return letter.toUpperCase()
     })
 }
+let obj=null
+if(getUserAgent()==='Mini'){
+    obj=BetterGesture
+}else{
+    obj={
+        BetterGesture:BetterGesture,
+        install: function (Vue) {
+            Vue.directive('gesture', {
+                bind: function(elem, binding) {
+                    let func = binding.value
+                    let oldFunc = binding.oldValue
+                    let cacheObj = CACHE[getElemCacheIndex(elem)]
+                    doOnOrOff(cacheObj, {
+                        elem: elem,
+                        func: func,
+                        oldFunc: oldFunc,
+                        eventName: getEventName(binding.arg)
+                    })
+                }
+                ,
+                unbind: function (elem) {
+                    let index = getElemCacheIndex(elem)
 
-export default {
-    install: function (Vue) {
-        Vue.directive('gesture', {
-            bind: function(elem, binding) {
-                let func = binding.value
-                let oldFunc = binding.oldValue
-                let cacheObj = CACHE[getElemCacheIndex(elem)]
-                doOnOrOff(cacheObj, {
-                    elem: elem,
-                    func: func,
-                    oldFunc: oldFunc,
-                    eventName: getEventName(binding.arg)
-                })
-            }
-            ,
-            unbind: function (elem) {
-                let index = getElemCacheIndex(elem)
-
-                if (!isNaN(index)) {
-                    let delArr = CACHE.splice(index, 1)
-                    if (delArr.length && delArr[0] && delArr[0].gesture.destroy) {
-                        delArr[0].gesture.destroy()
+                    if (!isNaN(index)) {
+                        let delArr = CACHE.splice(index, 1)
+                        if (delArr.length && delArr[0] && delArr[0].gesture.destroy) {
+                            delArr[0].gesture.destroy()
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
     }
 }
+export default obj

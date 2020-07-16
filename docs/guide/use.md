@@ -76,6 +76,29 @@ export default {
 
 ## 在小程序中使用
 
+**npm构建引入**
+
+在小程序 package.json 所在的目录中执行命令安装 npm 包
+
+ ``` sh
+npm install better-gesture
+```
+>
+点击开发者工具中的菜单栏：工具 --> 构建 npm
+
+**或者CDN下载引入**
+
+[点击下载](https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js)
+
+```js
+// npm构建引入
+import BetterGesture from './../miniprogram_npm/better-gesture/better-gesture.umd.min.js'
+// cdn下载引入
+import BetterGesture from './../utils/better-gesture.js'
+```
+
+**使用**
+
 > 建议使用catch捕获事件，否则易造成监听动画卡顿
 
 ``` html
@@ -95,9 +118,10 @@ export default {
 
 ```js
 // js
-import BetterGesture from './../utils/better-gesture.js'
+import BetterGesture from './../miniprogram_npm/better-gesture/better-gesture.umd.min.js'
 Page({
     onLoad() {
+        // 实例化
         new BetterGesture(this, {
             //拖拽
             pressMove(evt) {
@@ -121,4 +145,4 @@ Page({
 })
 ```
 
-小程序代码片段:  <https://developers.weixin.qq.com/s/zMnroRmF7fiT>
+ 小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/0xs7ASmT7Rio)

@@ -34,11 +34,11 @@ export default {
 <style scoped >
 .pinch {
   margin-top: 20px;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background: skyblue;
   user-select: none;
-  line-height: 100px;
+  line-height: 150px;
   text-align: center;
 }
 </style>

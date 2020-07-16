@@ -27,7 +27,7 @@
 
         return angle * 180 / Math.PI;
     }
-    function getUserAgent() {
+   export  function getUserAgent() {
         try {
             if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
                 return 'Mobile'
@@ -37,9 +37,6 @@
         } catch (e) {
             return 'Mini'
         }
-    }
-    function isWindow( obj ) {
-        return obj != null && obj === obj.window;
     }
      class Observer {
         constructor(el) {
@@ -89,7 +86,6 @@
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
-            this.isWindow=isWindow()
             this.Observer = new Observer(this.element)
             if (this.userAgent === 'Mini') {
                 // 小程序挂载到page实例上
@@ -153,7 +149,7 @@
 
             this._cancelAllHandler = this.cancelAll.bind(this);
 
-            this.isWindow&&window.addEventListener('scroll', this._cancelAllHandler);
+            typeof window !== 'undefined'&&window.addEventListener('scroll', this._cancelAllHandler);
 
             this.preV = { x: null, y: null };
             this.pinchStartLen = null;
@@ -389,13 +385,13 @@
             this.Observer._Observer = {}
             // 状态滞空
             this.preV = this.pinchStartLen = this.zoom = this.isDoubleTap = this.delta = this.last = this.now = this.tapTimeout =this.lastTime= this.singleTapTimeout = this.longTapTimeout = this.swipeTimeout = this.x1 = this.x2 = this.y1 = this.y2 = this.preTapPosition = null;
-            this.isWindow&& window.removeEventListener('scroll', this._cancelAllHandler);
+            typeof window !== 'undefined'&& window.removeEventListener('scroll', this._cancelAllHandler);
             return null;
         }
     }
 
 (function(){
-   if(isWindow()){
+   if(typeof window !== 'undefined' ){
     window.BetterGesture = BetterGesture;
    }
 })();
