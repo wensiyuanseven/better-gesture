@@ -35,15 +35,15 @@ export default {
       let distanceX = this.distanceX + evt.deltaX
       let distanceY = this.distanceY + evt.deltaY
       //边界限制
-      if (distanceY < -borderline) {
-        distanceY = -borderline
-      } else if (distanceY > borderline) {
-        distanceY = borderline
+      if (distanceY < -this.borderline) {
+        distanceY = -this.borderline
+      } else if (distanceY > this.borderline) {
+        distanceY = this.borderline
       }
-      if (distanceX < -borderline) {
-        distanceX = -borderline
-      } else if (distanceX > borderline) {
-        distanceX = borderline
+      if (distanceX < -this.borderline) {
+        distanceX = -this.borderline
+      } else if (distanceX > this.borderline) {
+        distanceX = this.borderline
       }
       this.distanceX = distanceX
       this.distanceY = distanceY
