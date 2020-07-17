@@ -22,7 +22,8 @@ export default {
       distanceY: 0,
       deltaX: 0,
       deltaY: 0,
-      deltaTime: 0
+      deltaTime: 0,
+      borderline:100
     }
   },
   methods: {
@@ -34,15 +35,15 @@ export default {
       let distanceX = this.distanceX + evt.deltaX
       let distanceY = this.distanceY + evt.deltaY
       //边界限制
-      if (distanceY < -100) {
-        distanceY = -100
-      } else if (distanceY > 100) {
-        distanceY = 100
+      if (distanceY < -borderline) {
+        distanceY = -borderline
+      } else if (distanceY > borderline) {
+        distanceY = borderline
       }
-      if (distanceX < -100) {
-        distanceX = -100
-      } else if (distanceX > 100) {
-        distanceX = 100
+      if (distanceX < -borderline) {
+        distanceX = -borderline
+      } else if (distanceX > borderline) {
+        distanceX = borderline
       }
       this.distanceX = distanceX
       this.distanceY = distanceY
