@@ -2,4 +2,4 @@ node_modules
 .vscode
 .temp
 .npmrc
-package-lock
+package-lock.json
