@@ -30,6 +30,7 @@ npm install better-gesture
 ``` html
 <!-- 最新版本 -->
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
+
 <!-- 指定版本 -->
 <script src='https://unpkg.com/better-gesture@0.2.1/lib/better-gesture.umd.min.js'></script>
 ```
@@ -129,6 +130,7 @@ npm install better-gesture
 ```js
 // npm构建引入
 import BetterGesture from './../miniprogram_npm/better-gesture/better-gesture.umd.min.js'
+
 // cdn下载引入
 import BetterGesture from './../utils/better-gesture.js'
 ```
