@@ -128,7 +128,8 @@ export default {
 .app {
   width: 300px;
   height: 400px;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   cursor: pointer;
   border: skyblue 2px solid;
 }

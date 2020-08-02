@@ -28,14 +28,20 @@
         return angle * 180 / Math.PI;
     }
    export  function getUserAgent() {
-        try {
-            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    /*eslint no-undef: 0 */
+    // 打包时会被定义为node环境,(小程序orNode顶层对象都是global,所以不能用global)
+        if (typeof global === 'undefined'|| typeof window !== 'undefined') {
+            if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
                 return 'Mobile'
-            } else {
+            }else{
                 return 'PC'
             }
-        } catch (e) {
-            return 'Mini'
+        }else{
+            if(global.__wcc_version__||Object.keys(global).length===0){
+                return 'Mini'
+            }else{
+                new Error('Node环境不可用')
+            }
         }
     }
      class Observer {
@@ -70,7 +76,7 @@
                 }
                 for (let i = 0, len = this._Observer[type].length; i < len; i++) {
                     let handler = this._Observer[type][i];
-                    typeof handler === 'function' && handler.call(this.el,args,'123');
+                    typeof handler === 'function' && handler.call(this.el,args);
                 }
             }
         }
@@ -86,6 +92,7 @@
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
+            console.log(getUserAgent(),'---')
             this.Observer = new Observer(this.element)
             if (this.userAgent === 'Mini') {
                 // 小程序挂载到page实例上

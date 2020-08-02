@@ -51,7 +51,8 @@ export default {
   height: 400px;
   width: 300px;
   border: 2px skyblue solid;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   text-align: center;
   font-weight: bold;
 }

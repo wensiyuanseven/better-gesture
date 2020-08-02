@@ -145,4 +145,4 @@ Page({
 })
 ```
 
- 小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/0xs7ASmT7Rio)
+ 小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/h2VEnhme7Ejl)

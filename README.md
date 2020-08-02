@@ -31,7 +31,7 @@ npm install better-gesture
 <!-- 最新版本 -->
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
 <!-- 指定版本 -->
-<script src='https://unpkg.com/better-gesture@0.2.0/lib/better-gesture.umd.min.js'></script>
+<script src='https://unpkg.com/better-gesture@0.2.1/lib/better-gesture.umd.min.js'></script>
 ```
 
 # 用法
@@ -180,6 +180,6 @@ Page({
 })
 ```
 
- 小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/0xs7ASmT7Rio)
- 
+ 小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/h2VEnhme7Ejl)
+
  更多用法: <https://wensiyuanseven.github.io/better-gesture>
