@@ -13,7 +13,7 @@
       >
         <div class="refresh">{{text}}</div>
         <p class="item" v-for="(item,index) in data">{{item}}</p>
-        <p class="item" v-for="(item,index) in 20">{{item}}</p>
+        <p class="item" v-for="(item,index) in 7">{{item}}</p>
       </div>
     </div>
   </div>

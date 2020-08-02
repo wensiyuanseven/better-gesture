@@ -131,7 +131,7 @@ export default {
   height: 400px;
   border: 2px solid skyblue;
   display: flex;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   user-select: none;
 }
