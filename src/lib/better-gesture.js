@@ -92,7 +92,6 @@
         constructor(el, option={}) {
             this.element = typeof el == 'string' ? document.querySelector(el) : el;
             this.userAgent = getUserAgent()
-            console.log(getUserAgent(),'---')
             this.Observer = new Observer(this.element)
             if (this.userAgent === 'Mini') {
                 // 小程序挂载到page实例上
@@ -284,7 +283,7 @@
             this.y2 = currentY;
             this.lastTime=Date.now()
 
-            if (evt.preventDefault&&evt.touches && evt.touches.length > 1) {
+            if (evt.preventDefault && evt.touches && evt.touches.length > 1) {
                 evt.preventDefault();
             }
 

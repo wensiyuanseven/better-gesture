@@ -15,5 +15,5 @@ npm install better-gesture
 <!-- 最新版本 -->
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
 <!-- 指定版本 -->
-<script src='https://unpkg.com/better-gesture@0.2.0/lib/better-gesture.umd.min.js'></script>
+<script src='https://unpkg.com/better-gesture@0.2.4/lib/better-gesture.umd.min.js'></script>
 ```

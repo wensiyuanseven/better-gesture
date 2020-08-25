@@ -1,6 +1,6 @@
 {
-  "name": "better-gesture",
-  "version": "0.2.1",
+  "name": "@wensiyuanseven/better-gesture",
+  "version": "0.2.4",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
   "description": "A gesture library compatible with multiple terminals (native, PC, mobile, Vue, applet)",
@@ -16,6 +16,9 @@
   "main": "lib/better-gesture.umd.min.js",
   "unpkg": "lib/better-gesture.umd.min.js",
   "miniprogram": "lib",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
