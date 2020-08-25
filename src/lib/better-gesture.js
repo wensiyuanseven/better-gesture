@@ -284,7 +284,7 @@
             this.y2 = currentY;
             this.lastTime=Date.now()
 
-            if (evt.touches && evt.touches.length > 1) {
+            if (evt.preventDefault&&evt.touches && evt.touches.length > 1) {
                 evt.preventDefault();
             }
 
