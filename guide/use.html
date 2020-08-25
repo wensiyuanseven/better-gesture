@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用法 | better-gesture</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <meta name="description" content="一个极小的,可兼容原生JS,Vue,PC,Mobile,小程序的多端手势库">
+    <link rel="preload" href="/better-gesture/assets/css/0.styles.52bd2fb2.css" as="style"><link rel="preload" href="/better-gesture/assets/js/app.d5294d38.js" as="script"><link rel="preload" href="/better-gesture/assets/js/2.3236f998.js" as="script"><link rel="preload" href="/better-gesture/assets/js/27.6b8a81fb.js" as="script"><link rel="prefetch" href="/better-gesture/assets/js/10.f7c49145.js"><link rel="prefetch" href="/better-gesture/assets/js/11.f352b734.js"><link rel="prefetch" href="/better-gesture/assets/js/12.75bf362b.js"><link rel="prefetch" href="/better-gesture/assets/js/13.1ce17926.js"><link rel="prefetch" href="/better-gesture/assets/js/14.0e711f91.js"><link rel="prefetch" href="/better-gesture/assets/js/15.32439e12.js"><link rel="prefetch" href="/better-gesture/assets/js/16.aca3c42e.js"><link rel="prefetch" href="/better-gesture/assets/js/17.2662f043.js"><link rel="prefetch" href="/better-gesture/assets/js/18.c37f043d.js"><link rel="prefetch" href="/better-gesture/assets/js/19.10001a06.js"><link rel="prefetch" href="/better-gesture/assets/js/20.bc893456.js"><link rel="prefetch" href="/better-gesture/assets/js/21.b4ac970c.js"><link rel="prefetch" href="/better-gesture/assets/js/22.cbe4c2b6.js"><link rel="prefetch" href="/better-gesture/assets/js/23.8c42a9a3.js"><link rel="prefetch" href="/better-gesture/assets/js/24.63967fd5.js"><link rel="prefetch" href="/better-gesture/assets/js/25.1b431f5d.js"><link rel="prefetch" href="/better-gesture/assets/js/26.0c2c94d7.js"><link rel="prefetch" href="/better-gesture/assets/js/3.7abca705.js"><link rel="prefetch" href="/better-gesture/assets/js/4.ef4f1924.js"><link rel="prefetch" href="/better-gesture/assets/js/5.5fdba1d2.js"><link rel="prefetch" href="/better-gesture/assets/js/6.6e3cef54.js"><link rel="prefetch" href="/better-gesture/assets/js/7.57fe0fbd.js"><link rel="prefetch" href="/better-gesture/assets/js/8.c0edeb90.js"><link rel="prefetch" href="/better-gesture/assets/js/9.c34a5669.js">
+    <link rel="stylesheet" href="/better-gesture/assets/css/0.styles.52bd2fb2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/better-gesture/" class="home-link router-link-active"><!----> <span class="site-name">better-gesture</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/better-gesture/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/better-gesture/event/" class="nav-link">
+  事件
+</a></div><div class="nav-item"><a href="/better-gesture/demo/" class="nav-link">
+  综合案例
+</a></div><div class="nav-item"><a href="https://github.com/wensiyuanseven/better-gesture" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/better-gesture/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="/better-gesture/event/" class="nav-link">
+  事件
+</a></div><div class="nav-item"><a href="/better-gesture/demo/" class="nav-link">
+  综合案例
+</a></div><div class="nav-item"><a href="https://github.com/wensiyuanseven/better-gesture" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/better-gesture/guide/" aria-current="page" class="sidebar-link">介绍</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/better-gesture/guide/install.html" class="sidebar-link">安装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/better-gesture/guide/install.html#npm" class="sidebar-link">NPM</a></li><li class="sidebar-sub-header"><a href="/better-gesture/guide/install.html#cdn" class="sidebar-link">CDN</a></li></ul></li><li><a href="/better-gesture/guide/use.html" aria-current="page" class="active sidebar-link">用法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/better-gesture/guide/use.html#直接script引入" class="sidebar-link">直接script引入</a></li><li class="sidebar-sub-header"><a href="/better-gesture/guide/use.html#在vue中使用" class="sidebar-link">在vue中使用</a></li><li class="sidebar-sub-header"><a href="/better-gesture/guide/use.html#在小程序中使用" class="sidebar-link">在小程序中使用</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="用法"><a href="#用法" class="header-anchor">#</a> 用法</h1> <h2 id="直接script引入"><a href="#直接script引入" class="header-anchor">#</a> 直接script引入</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">new</span> <span class="token class-name">BetterGesture</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'example'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token comment">//拖拽</span>
+      <span class="token function">pressMove</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>deltaX<span class="token punctuation">,</span> evt<span class="token punctuation">.</span>deltaY<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 旋转</span>
+      <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>angle<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 缩放</span>
+      <span class="token function">pinch</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>zoom<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 滑动</span>
+      <span class="token function">swipe</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>direction<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">//......</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="在vue中使用"><a href="#在vue中使用" class="header-anchor">#</a> 在vue中使用</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> gesture <span class="token keyword">from</span> <span class="token string">'better-gesture'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>gesture<span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>section <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;example&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div v<span class="token operator">-</span>gesture<span class="token operator">:</span>pressMove<span class="token operator">=</span><span class="token string">&quot;pressMove&quot;</span> v<span class="token operator">-</span>gesture<span class="token operator">:</span>doubleTap<span class="token operator">=</span><span class="token string">&quot;doubleTap&quot;</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>section<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token comment">//拖拽</span>
+      <span class="token function">pressMove</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>deltaX<span class="token punctuation">,</span> evt<span class="token punctuation">.</span>deltaY<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 旋转</span>
+      <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>angle<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 缩放</span>
+      <span class="token function">pinch</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>zoom<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 滑动</span>
+      <span class="token function">swipe</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>direction<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">//......</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+</code></pre></div><h2 id="在小程序中使用"><a href="#在小程序中使用" class="header-anchor">#</a> 在小程序中使用</h2> <p><strong>npm构建引入</strong></p> <p>在小程序 package.json 所在的目录中执行命令安装 npm 包</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">install</span> better-gesture
+</code></pre></div><blockquote></blockquote> <p>点击开发者工具中的菜单栏：工具 --&gt; 构建 npm</p> <p><strong>或者CDN下载引入</strong></p> <p><a href="https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js" target="_blank" rel="noopener noreferrer">点击下载<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// npm构建引入</span>
+<span class="token keyword">import</span> BetterGesture <span class="token keyword">from</span> <span class="token string">'./../miniprogram_npm/better-gesture/better-gesture.umd.min.js'</span>
+<span class="token comment">// cdn下载引入</span>
+<span class="token keyword">import</span> BetterGesture <span class="token keyword">from</span> <span class="token string">'./../utils/better-gesture.js'</span>
+</code></pre></div><p><strong>使用</strong></p> <blockquote><p>建议使用catch捕获事件，否则易造成监听动画卡顿</p></blockquote> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- wxml --&gt;</span>
+<span class="token comment">&lt;!-- 必须初始化事件touchstart,touchmove,touchend,touchcancel--&gt;</span>
+<span class="token comment">&lt;!-- 函数名必须定义为start,move，end,cancel --&gt;</span>
+<span class="token comment">&lt;!-- 函数start,move，end,cancel已经在new BetterGesture()时注入到了Page中,不需要在Page中再次定义--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>container<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span>
+      <span class="token attr-name"><span class="token namespace">catch:</span>touchstart</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>start<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name"><span class="token namespace">catch:</span>touchmove</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>move<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name"><span class="token namespace">catch:</span>touchend</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>end<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name"><span class="token namespace">catch:</span>touchcancel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>cancel<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// js</span>
+<span class="token keyword">import</span> BetterGesture <span class="token keyword">from</span> <span class="token string">'./../miniprogram_npm/better-gesture/better-gesture.umd.min.js'</span>
+<span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 实例化</span>
+        <span class="token keyword">new</span> <span class="token class-name">BetterGesture</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token comment">//拖拽</span>
+            <span class="token function">pressMove</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>deltaX<span class="token punctuation">,</span> evt<span class="token punctuation">.</span>deltaY<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token comment">// 旋转</span>
+            <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>angle<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token comment">// 缩放</span>
+            <span class="token function">pinch</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>zoom<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token comment">// 滑动</span>
+            <span class="token function">swipe</span><span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">.</span>direction<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">//......</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>小程序代码片段: <a href="https://developers.weixin.qq.com/s/vAQ2mRmd7wj9" target="_blank" rel="noopener noreferrer">点击查看<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/better-gesture/guide/install.html" class="prev">
+        安装
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/better-gesture/assets/js/app.d5294d38.js" defer></script><script src="/better-gesture/assets/js/2.3236f998.js" defer></script><script src="/better-gesture/assets/js/27.6b8a81fb.js" defer></script>
+  </body>
+</html>
