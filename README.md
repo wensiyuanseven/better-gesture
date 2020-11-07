@@ -187,4 +187,4 @@ Page({
 
  小程序代码片段: [点击查看](https://developers.weixin.qq.com/s/vAQ2mRmd7wj9)
 
- 更多用法: <wensiyuanseven.github.io/better-gesture>
+ 更多用法: <https://wensiyuanseven.github.io/better-gesture>
