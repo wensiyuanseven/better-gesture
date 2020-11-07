@@ -2,7 +2,7 @@
 
  ![minzip](https://img.shields.io/bundlephobia/minzip/better-gesture) ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/better-gesture) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/better-gesture)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/better-gesture)
 
-## 查看[文档](https://wensiyuanseven.github.io/better-gesture)或者[示例](https://wensiyuanseven.github.io/better-gesture)
+## [文档](https://wensiyuanseven.github.io/better-gesture)or[示例](https://wensiyuanseven.github.io/better-gesture/demo)
 
 ## 介绍
 
