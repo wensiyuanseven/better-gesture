@@ -137,7 +137,7 @@ import BetterGesture from './../utils/better-gesture.js'
 ``` html
 <!-- wxml -->
 <!-- Must initialize event touchstart,touchmove,touchend,touchcancel-->
-<!--  The function name must be defined as start,move，end,cancel -->
+<!-- The function name must be defined as start,move，end,cancel -->
 
 <view class='container'>
     <view
