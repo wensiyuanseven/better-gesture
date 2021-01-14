@@ -3,19 +3,20 @@
  ![minzip](https://img.shields.io/bundlephobia/minzip/better-gesture) ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/better-gesture) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/better-gesture)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/better-gesture)
 
 [中文文档](https://github.com/wensiyuanseven/better-gesture/blob/master/README_zh-CN.md)
- [Document](https://wensiyuanseven.github.io/better-gesture)
 
- [Demo](https://wensiyuanseven.github.io/better-gesture/demo)
+[Document](https://wensiyuanseven.github.io/better-gesture)
+
+[Demo](https://wensiyuanseven.github.io/better-gesture/demo)
 
 ### A convenient, lightweight, multi-terminal gesture library that can be used for PC, Mobile, Vue, and applets
 
-- **Support multiple terminals: PC, Mobile, Vue, applet**
-- **Very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
-- **Good documentation support**
-- **Simple API design**
-- **Excellent performance**
-- **Rich gesture events：doubleTap longTap pressMove rotate pinch swipe ...**
-- **Support dynamic destruction, create gesture event**
+- **support multiple terminals: PC, Mobile, Vue, applet**
+- **very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
+- **good documentation support**
+- **simple API design**
+- **excellent performance**
+- **rich gesture events：doubleTap longTap pressMove rotate pinch swipe ...**
+- **support dynamic destruction, create gesture event**
 
 ## Install
 
@@ -30,10 +31,10 @@ npm install better-gesture
 Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources，introduce the `js` file on the page to start using it.
 
 ``` html
-<!-- The latest version of -->
+<!-- the latest version of -->
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
 
-<!-- Specify version -->
+<!-- specify version -->
 <script src='https://unpkg.com/better-gesture@0.2.4/lib/better-gesture.umd.min.js'></script>
 ```
 
@@ -149,7 +150,6 @@ import BetterGesture from './../utils/better-gesture.js'
 ```
 
 ```js
-// js
 import BetterGesture from './../utils/better-gesture.js'
 Page({
     onLoad() {
@@ -172,6 +172,6 @@ Page({
 })
 ```
 
- Small program code snippets: [Click to view](https://developers.weixin.qq.com/s/vAQ2mRmd7wj9)
+Small program code snippets: [Click to view](https://developers.weixin.qq.com/s/vAQ2mRmd7wj9)
 
 More usage: <https://wensiyuanseven.github.io/better-gesture>
