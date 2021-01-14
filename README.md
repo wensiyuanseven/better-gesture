@@ -108,7 +108,7 @@ export default {
 
 ### use in mini programs
 
-> NPM build introduction
+> npm build introduction
 
 Execute the command to install the NPM package in the directory where the small package.json program is located
 
