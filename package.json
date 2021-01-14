@@ -3,7 +3,7 @@
   "version": "0.2.4",
   "private": false,
   "author": "wensiyuan siyusnseven@gmail.com",
-  "description": "A gesture library compatible with multiple terminals (native, PC, mobile, Vue, applet)",
+  "description": "A gesture library use for pc, mobile, vue, and mini programs",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
