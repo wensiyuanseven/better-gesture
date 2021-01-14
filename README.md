@@ -20,13 +20,13 @@
 
 ## Install
 
-## NPM
+### NPM
 
 ``` sh
 npm install better-gesture
 ```
 
-## CDN
+### CDN
 
 Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources，introduce the `js` file on the page to start using it.
 
@@ -38,9 +38,9 @@ Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources
 <script src='https://unpkg.com/better-gesture@0.2.4/lib/better-gesture.umd.min.js'></script>
 ```
 
-# Use
+## Use
 
-## use in script
+### use in script
 
 ``` html
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
@@ -68,7 +68,7 @@ Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources
 </script>
 ```
 
-## use in vue
+### use in vue
 
 ```js
 import Vue from 'vue'
@@ -106,7 +106,7 @@ export default {
 
 ```
 
-## use in mini programs
+### use in mini programs
 
 **NPM build introduction**
 
