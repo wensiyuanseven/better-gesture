@@ -31,7 +31,7 @@ npm install better-gesture
 Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources，introduce the `js` file on the page to start using it.
 
 ``` html
-<!-- the latest version of -->
+<!-- latest version of -->
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
 
 <!-- specify version -->
