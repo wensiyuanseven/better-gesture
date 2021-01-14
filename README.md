@@ -10,13 +10,13 @@
 
 ### A convenient, lightweight, multi-terminal gesture library that can be used for PC, Mobile, Vue, and applets
 
-- **support multiple terminals: PC, Mobile, Vue, applet**
-- **very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
-- **good documentation support**
-- **simple API design**
-- **excellent performance**
-- **rich gesture events：doubleTap longTap pressMove rotate pinch swipe ...**
-- **support dynamic destruction, create gesture event**
+- **Support multiple terminals: PC, Mobile, Vue, applet**
+- **Very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
+- **Good documentation support**
+- **Simple API design**
+- **Excellent performance**
+- **Rich gesture events：doubleTap longTap pressMove rotate pinch swipe ...**
+- **Support dynamic destruction, create gesture event**
 
 ## Install
 
@@ -38,9 +38,9 @@ Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources
 <script src='https://unpkg.com/better-gesture@0.2.4/lib/better-gesture.umd.min.js'></script>
 ```
 
-# USE
+# Use
 
-## Direct script introduction
+## Use in script
 
 ``` html
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
@@ -106,7 +106,7 @@ export default {
 
 ```
 
-## Used in small programs
+## Use in mini programs
 
 **NPM build introduction**
 
@@ -172,6 +172,6 @@ Page({
 })
 ```
 
-Small program code snippets: [Click to view](https://developers.weixin.qq.com/s/vAQ2mRmd7wj9)
+Mini programs code snippets: [Click to view](https://developers.weixin.qq.com/s/vAQ2mRmd7wj9)
 
 More usage: <https://wensiyuanseven.github.io/better-gesture>
