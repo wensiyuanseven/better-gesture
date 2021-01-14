@@ -8,7 +8,7 @@
 
 [Demo](https://wensiyuanseven.github.io/better-gesture/demo)
 
-### A convenient, lightweight, multi-terminal gesture library that can be used for PC, Mobile, Vue, and applets
+### A convenient, lightweight, multi-terminal gesture library that can be used for PC, Mobile, Vue, and mini programs
 
 - **Support multiple terminals: PC, Mobile, Vue, applet**
 - **Very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
@@ -40,7 +40,7 @@ Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources
 
 # Use
 
-## Use in script
+## use in script
 
 ``` html
 <script src='https://unpkg.com/better-gesture/lib/better-gesture.umd.min.js'></script>
@@ -68,7 +68,7 @@ Able to pass [unpkg.com/](https://unpkg.com/)get the latest version of resources
 </script>
 ```
 
-## Use in vue
+## use in vue
 
 ```js
 import Vue from 'vue'
@@ -106,7 +106,7 @@ export default {
 
 ```
 
-## Use in mini programs
+## use in mini programs
 
 **NPM build introduction**
 
@@ -130,7 +130,7 @@ import BetterGesture from './../miniprogram_npm/better-gesture/better-gesture.um
 import BetterGesture from './../utils/better-gesture.js'
 ```
 
-**USE**
+**Use**
 
 > It is recommended to use catch to capture the event, otherwise it will easily cause the monitoring animation to freeze
 
