@@ -8,7 +8,7 @@
 
 [Demo](https://wensiyuanseven.github.io/better-gesture/demo)
 
-### A convenient, lightweight, multi-terminal gesture library that can be used for PC, Mobile, Vue, and mini programs
+### A gesture library that can be used for pc, mobile, vue, and mini programs.
 
 - **Support multiple terminals: PC, Mobile, Vue, applet**
 - **Very small file size, no need to install any dependencies, the compressed code is only`3.77KB`**
