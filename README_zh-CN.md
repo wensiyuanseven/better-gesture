@@ -5,6 +5,8 @@
  [Document](https://wensiyuanseven.github.io/better-gesture)
 
  [Demo](https://wensiyuanseven.github.io/better-gesture/demo)
+ 
+ [Link](https://juejin.cn/post/6844904166700089351#heading-14)
 
 ## 介绍
 
