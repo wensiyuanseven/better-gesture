@@ -2,7 +2,7 @@
 
  ![minzip](https://img.shields.io/bundlephobia/minzip/better-gesture) ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/better-gesture) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/better-gesture)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/better-gesture)
 
- English | [中文](https://github.com/wensiyuanseven/better-gesture/blob/master/README_zh-CN.md) | [Demo](https://wensiyuanseven.github.io/better-gesture/demo)library[Link](https://juejin.cn/post/6844904166700089351#heading-14)
+ English | [中文](https://github.com/wensiyuanseven/better-gesture/blob/master/README_zh-CN.md) | [Demo](https://wensiyuanseven.github.io/better-gesture/demo) |  [Link](https://juejin.cn/post/6844904166700089351#heading-14)
 
 ## A gesture library use for pc, mobile, vue, and mini programs
 
