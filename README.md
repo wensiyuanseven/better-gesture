@@ -8,6 +8,8 @@
 
 [Demo](https://wensiyuanseven.github.io/better-gesture/demo)
 
+[Link](https://juejin.cn/post/6844904166700089351#heading-14)
+
 ## A gesture library use for pc, mobile, vue, and mini programs
 
 - **Support multiple terminals: PC, Mobile, Vue, applet**
