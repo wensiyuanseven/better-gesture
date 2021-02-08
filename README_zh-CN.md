@@ -1,10 +1,10 @@
 # better-gesture
 
  ![minzip](https://img.shields.io/bundlephobia/minzip/better-gesture) ![version](https://img.shields.io/github/package-json/v/wensiyuanseven/better-gesture) ![last commit](https://img.shields.io/github/last-commit/wensiyuanseven/better-gesture)  ![issues](https://img.shields.io/github/issues/wensiyuanseven/better-gesture)
+ 
+ [English](README.md)  |  中文  |  [Demo](https://wensiyuanseven.github.io/better-gesture/demo)  |  [Link](https://juejin.cn/post/6844904166700089351#heading-14)
 
 ## 一个方便、轻量,可用于PC,Mobile, Vue,小程序的多端手势库
-
-[English](README.md)  |  中文  |  [Demo](https://wensiyuanseven.github.io/better-gesture/demo)  |  [Link](https://juejin.cn/post/6844904166700089351#heading-14)
 
 - **支持多端：PC,Mobile,Vue,小程序**
 - **极小的文件大小,无需安装任何依赖，压缩后代码仅`3.77KB`**
